@@ -1,0 +1,38 @@
+html {
+  min-height: 100vh;
+}
+div,
+footer,
+header,
+body {
+  padding: 0;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 48px;
+  background: orangered;
+  color: white;
+  font-weight: bold;
+}
+
+.main-container {
+  padding: 20px 10px 50px;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 50px;
+  height: 50px;
+  background: cyan;
+  position: absolute;
+  bottom: 0;
+}

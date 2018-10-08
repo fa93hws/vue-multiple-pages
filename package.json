@@ -1,0 +1,40 @@
+{
+  "name": "vue-multiple-pages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm run dev-front && npm run dev-server",
+    "dev-front": "node ./scripts/dev.js",
+    "dev-server": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fa93hws/vue-multiple-pages.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fa93hws/vue-multiple-pages/issues"
+  },
+  "homepage": "https://github.com/fa93hws/vue-multiple-pages#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.0",
+    "concurrently": "^4.0.1",
+    "css-loader": "^1.0.0",
+    "nodemon": "^1.18.4",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}

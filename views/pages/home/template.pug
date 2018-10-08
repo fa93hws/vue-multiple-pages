@@ -1,0 +1,12 @@
+extends ../../templates/site.pug
+
+block content
+  article(class="home-article")
+    h1=title
+    p something something
+    | something something
+    div#vue-app1
+    div#vue-app2
+  
+block scripts
+  script(src='/dist/home-bundle.js')
