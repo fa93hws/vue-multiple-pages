@@ -29,11 +29,11 @@ function collectFiles(targetFolder, files) {
 function transformEntries(entries) {
   const output = {};
   entries.forEach(entry => {
-    const segments = entry.split('\\');
+    const segments = entry.split(path.sep);
     segments.splice(-1);
     segments.splice(0, 2);
-    const fileName = segments.join('\\\\') +  '-bundle';
-    output[fileName] = `.\\${entry}`;
+    const fileName = segments.join(path.sep) +  '-bundle';
+    output[fileName] = `.${path.sep}${entry}`;
   })
   return output;
 }

@@ -1,6 +1,6 @@
 <template>
   <div class = "vue2">
-    vue slot 2123123
+    vue2 slot
   </div>
 </template>
 

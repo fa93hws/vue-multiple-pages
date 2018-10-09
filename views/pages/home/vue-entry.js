@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App1 from './app1';
-import App2 from './app2.vue';
+import App2 from './app2';
 
 import './style.css';
 
