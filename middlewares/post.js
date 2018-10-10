@@ -21,6 +21,6 @@ function apply404Middlewares(app) {
 }
 
 // app: express-instance
-module.exports = function(app) {
+export default function(app) {
   apply404Middlewares(app);
 }

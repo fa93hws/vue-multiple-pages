@@ -1,10 +1,10 @@
 'use strict'
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const webpack = require('webpack');
+import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import webpack from 'webpack';
 
-const routes = require('./routes');
+import webpackPath from './path';
 
-module.exports = {
+const baseConfig = {
   resolve: {
     extensions: ['.vue', '.js', '.json']
   },
@@ -20,7 +20,7 @@ module.exports = {
     }
   },
   output: {
-    path: routes.frontDist,
+    path: webpackPath.distPath,
     filename: '[name].js'
   },
   module: {
@@ -47,4 +47,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ]
-}
+};
+
+export default baseConfig;

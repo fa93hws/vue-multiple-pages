@@ -1,8 +1,9 @@
-const webpack = require('webpack');
-const path = require('path');
-const fs = require('fs-extra');
+import path from 'path';
+import fs from 'fs';
 
-const routes = require('./routes');
+import webpackPath from './path';
+import baseConfig from './base-config';
+
 /**
  * collect all vue-entry.js in views folder, DFS algorithm
  * @param {string} folder target folder
@@ -14,7 +15,7 @@ function collectFiles(targetFolder, files) {
   .map(name => path.join(targetFolder, name))
   .forEach(source => {
     if (fs.lstatSync(source).isDirectory()) folders.push(source);
-    else if (source.includes(routes.vueEntry)) files.push(source);
+    else if (source.includes(webpackPath.vueEntry)) files.push(source);
   })
   folders.forEach(f => collectFiles(f, files));
   return files;
@@ -41,25 +42,17 @@ function transformEntries(entries) {
 /**
  * @param {string} mode 'development' | 'production' | 'test'
  */
-module.exports = function(mode) {
-  fs.removeSync(routes.frontDist);
-  let entry = collectFiles(routes.views, []);
+export default function(mode) {
+  let entry = collectFiles(webpackPath.views, []);
   entry = transformEntries(entry);
-  entry.vendors = routes.vendorDependencies;
-  entry['hmr'] = 'webpack-hot-middleware/client?reload=true';
-  return webpackConfig = {
-    ...require('./config'),
+  entry.vendors = webpackPath.vendorDependencies;
+  if (mode === 'development') entry['hmr'] = 'webpack-hot-middleware/client?reload=true';
+  const webpackConfig = {
+    ...baseConfig,
     mode,
     entry,
     watch: mode === 'development'
-  }
-  // const compiler = webpack(webpackConfig);
-  // return compiler;
-  // compiler.run((err, stats) => {
-  //   if (err || stats.hasErrors()) {
-  //     console.log(err);
-  //   }
-  //   console.log('build done');
-  // });
+  };
+  return webpackConfig;
 }
 

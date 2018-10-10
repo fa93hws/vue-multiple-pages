@@ -1,7 +1,3 @@
-const webpack = require('webpack');
-const middleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-
 /**
  * parse mode from command lines (env=xxx), default value is 'production'
  * @return {string} 'development' | 'production'
@@ -17,13 +13,19 @@ function parseMode() {
 
 // app: express instance
 function applyWebpackMiddlewares(app) {
-  const config = require('./webpack/build-front.js')('development');
+  const configProducer = require('../scripts/webpack-config/config-producer').default;
+  const webpack = require('webpack');
+  const middleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  const webpackFolder = require('../scripts/webpack-config/path').default;
+
+  const config = configProducer('development');
   const compiler = webpack(config);
   app.use(middleware(compiler, {
     watchOptions: {
       poll: true
     },
-    publicPath: '/dist/'
+    publicPath: `/${webpackFolder.distFolder}/`
     // writeToDisk: true
     // webpack-dev-middleware options
   }));
@@ -47,7 +49,7 @@ function addModeToRender(req, res, next) {
 }
 
 // app: express instance
-module.exports = function(app) {
+export default function(app) {
   const mode = parseMode();
   if (mode === 'development') {
     applyWebpackMiddlewares(app);

@@ -4,7 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js env=development",
+    "dev": "nodemon ./app.js env=development --exec babel-node",
+    "clean": "babel-node scripts/clean-build.js target=./dist",
+    "build": "npm run clean && npm run build-server && npm run build-client",
+    "build-server": "babel ./ -d dist --ignore node_modules,views,scripts",
+    "build-client": "babel-node ./scripts/build.js target=./dist",
+    "start": "node ./dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,9 +23,14 @@
   },
   "homepage": "https://github.com/fa93hws/vue-multiple-pages#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.0",
-    "concurrently": "^4.0.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^1.0.0",
+    "fs-extra": "^7.0.0",
+    "ncp": "^2.0.0",
     "nodemon": "^1.18.4",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.2",

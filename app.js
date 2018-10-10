@@ -1,6 +1,8 @@
-const express = require('express')
-const applyPriorMiddlewares = require('./scripts/prior-middlewares');
-const applyPostMiddlewares = require('./scripts/post-middlewares');
+import express from 'express';
+import applyPriorMiddlewares from './middlewares/prior';
+import applyPostMiddlewares from './middlewares/post';
+import homeController from './controllers/home-controller';
+import userController from './controllers/user-controller';
 
 const app = express();
 app.set('views', __dirname + '/views')
@@ -9,8 +11,6 @@ app.use(express.static('static'))
 applyPriorMiddlewares(app);
 
 // router
-const homeController = require('./controllers/home-controller');
-const userController = require('./controllers/user-controller');
 app.get('/', homeController.index);
 app.get('/user', userController.users);
 app.get('/user/:id', userController.user);
