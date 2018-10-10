@@ -48,7 +48,7 @@ module.exports = function(mode) {
   entry.vendors = routes.vendorDependencies;
   entry['hmr'] = 'webpack-hot-middleware/client?reload=true';
   return webpackConfig = {
-    ...require('./webpack-config'),
+    ...require('./config'),
     mode,
     entry,
     watch: mode === 'development'

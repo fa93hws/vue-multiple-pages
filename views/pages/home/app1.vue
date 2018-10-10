@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .vue1 {
   margin-top: 30px;
 }

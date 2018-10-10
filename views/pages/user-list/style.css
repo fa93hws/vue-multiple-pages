@@ -1,0 +1,8 @@
+.user {
+  display: flex;
+  align-items: center;
+}
+.value {
+  font-weight: bold;
+  margin-left: 3px;
+}

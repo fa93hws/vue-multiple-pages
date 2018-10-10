@@ -1,6 +1,3 @@
-html {
-  min-height: 100vh;
-}
 div,
 footer,
 header,
@@ -10,15 +7,40 @@ body {
   padding: 0;
   margin: 0;
 }
+body {
+  min-height: 100vh;
+  position: relative;
+}
+a:visited,
+a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none;
+}
 
 .header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+.header-title {
+  margin: 0;
+  padding: 0;
   font-size: 24px;
   line-height: 48px;
   background: orangered;
   color: white;
   font-weight: bold;
+  text-align: center;
+}
+.nav {
+  display: flex;
+  background: black;
+  color: white;
+  font-size: 18px;
+  padding: 5px 0;
+}
+.nav-item {
+  margin-left: 1em;
 }
 
 .main-container {

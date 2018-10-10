@@ -1,0 +1,23 @@
+extends ../../templates/site.pug
+
+block styles
+  style
+    include ./style.css
+
+block content
+  div#userContainer(class="user-container")
+    ul(class="user-list")
+      each user in users
+        li(class="user")
+          section(class="user-content")
+            p(class="field")
+              span(class="key") uid:
+              span(class="value") #{user.id}
+            p(class="field")
+              span(class="key") user name:
+              span(class="value") #{user.name}
+
+block scripts
+  script.
+    var users = !{JSON.stringify(users)}
+  script(src='/dist/user-list-bundle.js')

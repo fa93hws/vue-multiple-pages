@@ -1,5 +1,4 @@
 'use strict'
-// const { VueLoaderPlugin } = require('vue-loader')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack');
 
