@@ -1,9 +1,9 @@
-<template>
-  <div class = "vue1">
-    Vue slot 1s234
-    <my-input />
-    <span>{{ test }}</span>
-  </div>
+<template lang="pug">
+  div(class="vue1")
+    span Vue slot 1s234
+    my-input
+    span
+      #{test}
 </template>
 
 <script>

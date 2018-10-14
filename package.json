@@ -32,6 +32,8 @@
     "fs-extra": "^7.0.0",
     "ncp": "^2.0.0",
     "nodemon": "^1.18.4",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
     "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
@@ -42,7 +44,6 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "pug": "^2.0.3"
+    "express": "^4.16.3"
   }
 }

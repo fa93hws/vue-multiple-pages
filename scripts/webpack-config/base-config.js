@@ -35,6 +35,10 @@ const baseConfig = {
           'vue-style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-plain-loader'
       }
     ]
   },

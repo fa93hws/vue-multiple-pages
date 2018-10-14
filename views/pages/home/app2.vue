@@ -1,7 +1,6 @@
-<template>
-  <div class = "vue2">
-    vue2 slot123
-  </div>
+<template lang="pug">
+  div(class="vue2")
+    span vue122 slot123
 </template>
 
 <script>
