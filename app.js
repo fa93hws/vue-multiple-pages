@@ -7,10 +7,10 @@ import userController from './controllers/user-controller';
 const app = express();
 app.set('views', __dirname + '/views')
 app.set('view engine', 'pug')
-app.use(express.static('static'))
 applyPriorMiddlewares(app);
 
 // router
+app.use(express.static('static'))
 app.get('/', homeController.index);
 app.get('/user', userController.users);
 app.get('/user/:id', userController.user);
