@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/fa93hws/vue-multiple-pages#readme",
   "devDependencies": {
+    "autoprefixer": "^9.3.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
@@ -32,6 +33,7 @@
     "fs-extra": "^7.0.0",
     "ncp": "^2.0.0",
     "nodemon": "^1.18.4",
+    "postcss-loader": "^3.0.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "vue": "^2.5.17",

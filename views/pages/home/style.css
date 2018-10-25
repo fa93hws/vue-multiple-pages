@@ -2,3 +2,7 @@
   padding: 20px;
   color: red;
 }
+
+input::placeholder {
+  color: black;
+}
