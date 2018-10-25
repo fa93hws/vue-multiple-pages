@@ -24,4 +24,7 @@ export default {
 .vue1 {
   margin-top: 30px;
 }
+input::placeholder {
+  color: red;
+}
 </style>
