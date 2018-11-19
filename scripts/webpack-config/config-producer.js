@@ -34,7 +34,7 @@ function transformEntries(entries) {
     segments.splice(-1);
     segments.splice(0, 2);
     const fileName = segments.join(path.sep) +  '-bundle';
-    output[fileName] = `.${path.sep}${entry}`;
+    output[fileName] = [`.${path.sep}${entry}`, 'webpack-hot-middleware/client?reload=true'];
   })
   return output;
 }

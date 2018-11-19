@@ -1,9 +1,8 @@
 <template lang="pug">
   div(class="vue1")
-    span Vue slot 1s234
+    span Vue slot 1s2341
     my-input
-    span
-      #{test}
+    span #{test}
 </template>
 
 <script>

@@ -48,12 +48,21 @@ function addModeToRender(req, res, next) {
   next();
 }
 
+function redirectHotReload(req, res, next) {
+  if (req.url.slice(0, 5) !== '/dist' && req.url.match(/hot-update.(json|js)$/)) {
+    res.redirect('/dist' + req.url);
+  } else {
+    next();
+  }
+}
+
 // app: express instance
 export default function(app) {
   const mode = parseMode();
   if (mode === 'development') {
     applyWebpackMiddlewares(app);
     app.use(addModeToRender);
+    app.use(redirectHotReload);
   }
 }
 
